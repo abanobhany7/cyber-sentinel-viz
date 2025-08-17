@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, Download, Mail } from 'lucide-react';
+import profilePhoto from '@/assets/profile-photo.avif';
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState('');
@@ -39,6 +40,18 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto animate-fade-in-up">
+          {/* Profile Photo */}
+          <div className="mb-8 flex justify-center">
+            <div className="relative w-32 h-32 md:w-40 md:h-40">
+              <img 
+                src={profilePhoto} 
+                alt="Abanob Hany - Information Security Analyst"
+                className="w-full h-full object-cover rounded-full border-2 border-primary cyber-glow"
+              />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 animate-pulse-glow"></div>
+            </div>
+          </div>
+
           {/* Hero Title */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             <span className="text-foreground">Hello, I'm</span>
