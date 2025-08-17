@@ -1,12 +1,4 @@
-import { GraduationCap, Award, Users, Calendar } from 'lucide-react';
-
 const AboutSection = () => {
-  const stats = [
-    { icon: Calendar, label: 'Years Experience', value: '2+', color: 'text-primary' },
-    { icon: Award, label: 'SOC Projects', value: '10+', color: 'text-accent' },
-    { icon: Users, label: 'Incidents Handled', value: '100+', color: 'text-secondary' },
-    { icon: GraduationCap, label: 'Certifications', value: '5+', color: 'text-warning-orange' },
-  ];
 
   return (
     <section id="about" className="py-20 relative">
@@ -66,37 +58,15 @@ const AboutSection = () => {
               </div>
             </div>
 
-            {/* Stats Grid */}
+            {/* Right Column - Keep Empty for Balance */}
             <div className="animate-slide-in-right">
-              <div className="grid grid-cols-2 gap-6">
-                {stats.map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="glass-card p-6 text-center hover-lift group"
-                  >
-                    <div className={`${stat.color} mb-4 flex justify-center`}>
-                      <stat.icon className="h-12 w-12 group-hover:scale-110 transition-transform" />
-                    </div>
-                    <div className="text-3xl font-bold text-gradient-cyber mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-muted-foreground font-medium">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Mission Statement */}
-              <div className="glass-card p-8 mt-6 hover-lift">
+              <div className="glass-card p-8 hover-lift">
                 <h4 className="text-xl font-bold text-center mb-4">
-                  <span className="text-gradient-accent">Mission Statement</span>
+                  <span className="text-gradient-accent">Ready to Secure Your Digital Future</span>
                 </h4>
-                <p className="text-center text-foreground italic">
-                  "To create a secure digital environment where threats are detected, 
-                  analyzed, and neutralized before they can cause harm. My commitment 
-                  is to continuous learning, proactive defense, and turning complex 
-                  security challenges into clear, actionable solutions."
+                <p className="text-center text-foreground">
+                  Let's connect and discuss how my cybersecurity expertise can help 
+                  protect and strengthen your organization's security posture.
                 </p>
               </div>
             </div>
