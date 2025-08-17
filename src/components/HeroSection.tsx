@@ -42,7 +42,7 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto animate-fade-in-up">
           {/* Profile Photo */}
           <div className="mb-8 flex justify-center">
-            <div className="relative w-32 h-32 md:w-40 md:h-40">
+            <div className="relative w-48 h-48 md:w-64 md:h-64">
               <img 
                 src={profilePhoto} 
                 alt="Abanob Hany - Information Security Analyst"
