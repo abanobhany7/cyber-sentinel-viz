@@ -46,9 +46,8 @@ const HeroSection = () => {
               <img 
                 src={profilePhoto} 
                 alt="Abanob Hany - Information Security Analyst"
-                className="w-full h-full object-cover rounded-full border-2 border-primary cyber-glow"
+                className="w-full h-full object-cover rounded-full border-2 border-primary"
               />
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-accent/20 animate-pulse-glow"></div>
             </div>
           </div>
 
