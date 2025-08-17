@@ -1,0 +1,99 @@
+import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { ChevronDown, Download, Mail } from 'lucide-react';
+
+const HeroSection = () => {
+  const [displayText, setDisplayText] = useState('');
+  const fullText = 'See the threat before it sees you';
+
+  useEffect(() => {
+    let index = 0;
+    const timer = setInterval(() => {
+      if (index <= fullText.length) {
+        setDisplayText(fullText.slice(0, index));
+        index++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 100);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.querySelector(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Matrix background */}
+      <div className="matrix-bg"></div>
+      
+      {/* Floating cyber elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary rounded-full animate-pulse-glow"></div>
+        <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-accent rounded-full animate-pulse-glow" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-secondary rounded-full animate-pulse-glow" style={{animationDelay: '2s'}}></div>
+      </div>
+
+      <div className="container mx-auto px-6 text-center relative z-10">
+        <div className="max-w-4xl mx-auto animate-fade-in-up">
+          {/* Hero Title */}
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <span className="text-foreground">Hello, I'm</span>
+            <br />
+            <span className="text-gradient-cyber">Abanob Hany</span>
+          </h1>
+
+          {/* Subtitle */}
+          <div className="text-xl md:text-2xl mb-8 text-muted-foreground">
+            <span className="text-gradient-accent font-semibold">Information Security Analyst</span>
+            <br />
+            <span>Specializing in SOC Operations & Cybersecurity Defense</span>
+          </div>
+
+          {/* Typewriter Effect */}
+          <div className="mb-12 h-16 flex items-center justify-center">
+            <p className="text-lg md:text-xl text-primary font-mono border-r-2 border-primary pr-1">
+              {displayText}
+              <span className="animate-blink-cursor">|</span>
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <Button 
+              size="lg"
+              className="cyber-glow hover-lift bg-primary text-primary-foreground hover:bg-primary/90"
+              onClick={() => scrollToSection('#contact')}
+            >
+              <Mail className="mr-2 h-5 w-5" />
+              Get In Touch
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="glass-card hover-lift border-primary text-primary hover:bg-primary/10"
+            >
+              <Download className="mr-2 h-5 w-5" />
+              Download CV
+            </Button>
+          </div>
+
+          {/* Scroll Indicator */}
+          <div className="animate-bounce">
+            <button
+              onClick={() => scrollToSection('#about')}
+              className="text-primary hover:text-primary/80 transition-colors"
+            >
+              <ChevronDown className="h-8 w-8 mx-auto" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
