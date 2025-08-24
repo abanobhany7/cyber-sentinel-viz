@@ -77,8 +77,8 @@ const HeroSection = () => {
           <div className="flex justify-center items-center mb-16">
             <Button 
               size="lg"
-              className="cyber-glow hover-lift bg-primary text-primary-foreground hover:bg-primary/90"
-              onClick={() => window.open('https://linkedin.com/in/abanob-hany', '_blank')}
+              className="cyber-glow hover-lift bg-gradient-to-r from-blue-600 to-blue-800 text-white hover:from-blue-700 hover:to-blue-900 shadow-lg shadow-blue-500/25 border border-blue-400/30"
+              onClick={() => window.open('https://www.linkedin.com/in/abanob-hany-314132312/', '_blank')}
             >
               <Linkedin className="mr-2 h-5 w-5" />
               Add me on LinkedIn

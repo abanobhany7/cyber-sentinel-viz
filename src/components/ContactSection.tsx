@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,10 @@ const ContactSection = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Initialize EmailJS
+  emailjs.init('feCaTsVbpyaLh7dsn');
 
   const contactInfo = [
     {
@@ -40,13 +45,13 @@ const ContactSection = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: '#',
+      href: 'https://github.com/abanobhany7',
       color: 'text-foreground hover:text-primary'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: '#',
+      href: 'https://www.linkedin.com/in/abanob-hany-314132312/',
       color: 'text-foreground hover:text-accent'
     }
   ];
@@ -58,10 +63,40 @@ const ContactSection = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+
+    try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: 'Abanob Hany'
+      };
+
+      await emailjs.send(
+        'service_u4251cb',
+        'template_fkpzq2k',
+        templateParams
+      );
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+
+      alert('Message sent successfully! I will get back to you soon.');
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      alert('Failed to send message. Please try again or contact me directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -124,6 +159,8 @@ const ContactSection = () => {
                       <a
                         key={social.label}
                         href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className={`p-3 glass-card hover-lift ${social.color} transition-colors`}
                         aria-label={social.label}
                       >
@@ -214,11 +251,12 @@ const ContactSection = () => {
                   {/* Submit Button */}
                   <Button
                     type="submit"
-                    className="w-full cyber-glow bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                    disabled={isSubmitting}
+                    className="w-full cyber-glow bg-primary text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50"
                     size="lg"
                   >
                     <Send className="mr-2 h-5 w-5" />
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
 
