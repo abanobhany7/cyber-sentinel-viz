@@ -2,10 +2,12 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,7 +16,7 @@ const ContactSection = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Initialize EmailJS
+  // Initialize EmailJS with public key
   emailjs.init('feCaTsVbpyaLh7dsn');
 
   const contactInfo = [
@@ -76,11 +78,14 @@ const ContactSection = () => {
         to_name: 'Abanob Hany'
       };
 
-      await emailjs.send(
+      const result = await emailjs.send(
         'service_u4251cb',
         'template_fkpzq2k',
-        templateParams
+        templateParams,
+        'feCaTsVbpyaLh7dsn'
       );
+
+      console.log('EmailJS result:', result);
 
       // Reset form
       setFormData({
@@ -90,10 +95,19 @@ const ContactSection = () => {
         message: ''
       });
 
-      alert('Message sent successfully! I will get back to you soon.');
+      toast({
+        title: "Message sent successfully! ✅",
+        description: "I will get back to you soon. Thank you for reaching out!",
+        duration: 5000,
+      });
     } catch (error) {
       console.error('Failed to send email:', error);
-      alert('Failed to send message. Please try again or contact me directly.');
+      toast({
+        title: "Failed to send message ❌",
+        description: "Please try again or contact me directly via email or LinkedIn.",
+        variant: "destructive",
+        duration: 5000,
+      });
     } finally {
       setIsSubmitting(false);
     }
