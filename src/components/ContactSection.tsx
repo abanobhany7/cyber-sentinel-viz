@@ -70,8 +70,6 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      console.log('Attempting to send email with data:', formData);
-      
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
@@ -82,17 +80,12 @@ const ContactSection = () => {
         reply_to: formData.email
       };
 
-      console.log('Template params:', templateParams);
-
       const result = await emailjs.send(
         'service_u4251cb',
         'template_fkpzq2k',
         templateParams,
         'feCaTsVbpyaLh7dsn'
       );
-
-      console.log('EmailJS result:', result);
-      console.log('Email should be sent to: abanobhany522@gmail.com');
 
       if (result.status === 200) {
         // Reset form
