@@ -42,7 +42,8 @@ const SkillsSection = () => {
   ];
 
   const certifications = [
-    'Security+ (In Progress)',
+    'Security+',
+    'Certified Ethical Hacker (CEH v13)',
     'CCNA Network Security',
     'SOC Analyst Fundamentals',
     'SIEM Operations',

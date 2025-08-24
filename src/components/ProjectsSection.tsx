@@ -18,22 +18,6 @@ const ProjectsSection = () => {
       ],
       icon: Network,
       color: 'primary'
-    },
-    {
-      title: 'SOC Security Monitoring Dashboard',
-      description: 'Real-time security operations center dashboard for threat detection and incident response management.',
-      image: '/placeholder-dashboard.jpg',
-      technologies: ['SIEM', 'Splunk', 'Python', 'REST APIs', 'JSON'],
-      features: [
-        'Real-time threat monitoring',
-        'Custom alerting mechanisms',
-        'Incident tracking workflow',
-        'Automated report generation',
-        'Integration with multiple data sources',
-        'Interactive threat visualization'
-      ],
-      icon: Shield,
-      color: 'accent'
     }
   ];
 
@@ -75,19 +59,6 @@ const ProjectsSection = () => {
                   <div className={`relative overflow-hidden rounded-lg ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                     <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 flex items-center justify-center">
                       <project.icon className={`h-24 w-24 ${getColorClasses(project.color).split(' ')[0]} opacity-50`} />
-                    </div>
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 hover:opacity-100 transition-opacity flex items-end p-6">
-                      <div className="flex space-x-3">
-                        <Button size="sm" variant="outline" className="glass-card">
-                          <Github className="h-4 w-4 mr-2" />
-                          Code
-                        </Button>
-                        <Button size="sm" variant="outline" className="glass-card">
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Demo
-                        </Button>
-                      </div>
                     </div>
                   </div>
 
@@ -139,17 +110,6 @@ const ProjectsSection = () => {
                       </div>
                     </div>
 
-                    {/* Project Actions */}
-                    <div className="flex space-x-3">
-                      <Button variant="outline" className="glass-card hover:bg-primary/10">
-                        <Github className="h-4 w-4 mr-2" />
-                        View Code
-                      </Button>
-                      <Button variant="outline" className="glass-card hover:bg-accent/10">
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Live Demo
-                      </Button>
-                    </div>
                   </div>
                 </div>
               </div>

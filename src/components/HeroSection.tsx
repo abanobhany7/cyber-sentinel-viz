@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, Download, Mail } from 'lucide-react';
+import { ChevronDown, Linkedin } from 'lucide-react';
 import profilePhoto from '@/assets/profile-photo.avif';
 
 const HeroSection = () => {
@@ -73,23 +73,15 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+          {/* CTA Button */}
+          <div className="flex justify-center items-center mb-16">
             <Button 
               size="lg"
               className="cyber-glow hover-lift bg-primary text-primary-foreground hover:bg-primary/90"
-              onClick={() => scrollToSection('#contact')}
+              onClick={() => window.open('https://linkedin.com/in/abanob-hany', '_blank')}
             >
-              <Mail className="mr-2 h-5 w-5" />
-              Get In Touch
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="glass-card hover-lift border-primary text-primary hover:bg-primary/10"
-            >
-              <Download className="mr-2 h-5 w-5" />
-              Download CV
+              <Linkedin className="mr-2 h-5 w-5" />
+              Add me on LinkedIn
             </Button>
           </div>
 
