@@ -70,13 +70,19 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
+      console.log('Attempting to send email with data:', formData);
+      
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_name: 'Abanob Hany'
+        to_name: 'Abanob Hany',
+        to_email: 'abanobhany522@gmail.com',
+        reply_to: formData.email
       };
+
+      console.log('Template params:', templateParams);
 
       const result = await emailjs.send(
         'service_u4251cb',
@@ -86,22 +92,33 @@ const ContactSection = () => {
       );
 
       console.log('EmailJS result:', result);
+      console.log('Email should be sent to: abanobhany522@gmail.com');
 
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+      if (result.status === 200) {
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
 
-      toast({
-        title: "Message sent successfully! ✅",
-        description: "I will get back to you soon. Thank you for reaching out!",
-        duration: 5000,
-      });
+        toast({
+          title: "Message sent successfully! ✅",
+          description: "I will get back to you soon. Thank you for reaching out!",
+          duration: 5000,
+        });
+      } else {
+        throw new Error(`EmailJS returned status: ${result.status}`);
+      }
     } catch (error) {
       console.error('Failed to send email:', error);
+      console.error('Error details:', {
+        message: error.message,
+        stack: error.stack,
+        name: error.name
+      });
+      
       toast({
         title: "Failed to send message ❌",
         description: "Please try again or contact me directly via email or LinkedIn.",
