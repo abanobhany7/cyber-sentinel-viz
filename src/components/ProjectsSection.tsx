@@ -129,6 +129,7 @@ const ProjectsSection = () => {
               <Button 
                 variant="outline" 
                 className="glass-card cyber-glow border-primary text-primary hover:bg-primary/10"
+                onClick={() => window.open('https://github.com/AbanobHany', '_blank')}
               >
                 <Github className="h-4 w-4 mr-2" />
                 View All Projects
