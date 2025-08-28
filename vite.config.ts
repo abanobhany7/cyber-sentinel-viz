@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: 'cyber-sentinel-viz', // Replace 'your-repo-name' with your actual GitHub repository name
+  base: '/cyber-sentinel-viz/', // Replace 'your-repo-name' with your actual GitHub repository name
   server: {
     host: "::",
     port: 8080,
