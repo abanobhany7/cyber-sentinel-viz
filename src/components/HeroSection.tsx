@@ -31,12 +31,6 @@ const HeroSection = () => {
       {/* Matrix background */}
       <div className="matrix-bg"></div>
       
-      {/* Floating cyber elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary rounded-full animate-pulse-glow"></div>
-        <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-accent rounded-full animate-pulse-glow" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-secondary rounded-full animate-pulse-glow" style={{animationDelay: '2s'}}></div>
-      </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto animate-fade-in-up">
