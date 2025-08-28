@@ -56,25 +56,6 @@ const Footer = () => {
           {/* Divider */}
           <div className="border-t border-border mb-8"></div>
 
-          {/* Bottom Section */}
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-muted-foreground text-sm">
-              © {currentYear} Abanob Hany. All rights reserved.
-            </div>
-            <div className="flex items-center text-muted-foreground text-sm">
-              <span>Built with</span>
-              <Heart className="h-4 w-4 mx-1 text-accent animate-pulse-glow" />
-              <span>and cybersecurity in mind</span>
-            </div>
-          </div>
-
-          {/* Security Notice */}
-          <div className="mt-8 glass-card p-4 text-center">
-            <p className="text-xs text-muted-foreground">
-              <span className="text-primary font-medium">Security Notice:</span> This website follows security best practices. 
-              All communications are monitored for quality assurance and security purposes.
-            </p>
-          </div>
         </div>
       </div>
     </footer>
